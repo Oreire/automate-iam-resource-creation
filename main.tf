@@ -11,7 +11,7 @@ terraform {
 }
 
 provider "aws" {
-  region     = var.region
+  region     = "eu-west-2"
   access_key = var.access_key
   secret_key = var.secret_key
 
@@ -27,7 +27,7 @@ resource "aws_instance" "production_nodes" {
   vpc_security_group_ids = [aws_security_group.some_rule.id]
 
   tags = {
-    name = "production_nodes-${count.index + 1}"
+    Name = " Production-Node-${count.index + 1} "
   }
 
 }
@@ -38,11 +38,11 @@ resource "aws_iam_user" "production_dept" {
   for_each   = local.production
   name       = each.key
   depends_on = [aws_instance.production_nodes]
-  aws_iam_group_name = [aws_iam_group.DevOps-1.id]
 }
 
+
 locals {
-  production = toset(
+  production = toset (
     [
       "Alan",
       "Barbie",
@@ -50,8 +50,4 @@ locals {
       "David",
     "Enny"]
   )
-}
-resource "aws_iam_group" "DevOps-1" {
-    name = "devOps-Engineers"
-    path =  "/users/"
 }
