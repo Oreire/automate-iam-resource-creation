@@ -11,3 +11,6 @@ variable "access_key" {
 variable "secret_key" {
   sensitive = true
 }
+
+variable "bucket_id" {}
+variable "bucket_key" {}
