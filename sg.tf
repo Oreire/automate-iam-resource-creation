@@ -1,7 +1,7 @@
 #Creaste 3 Security Grouos attached to Ec2 Instances
 
 resource "aws_security_group" "some_rule" {
-  name = SSH-HTTP-HTTPS-SG
+  name = "SSH-HTTP-HTTPS-SG"
 
   egress {
     from_port   = 0

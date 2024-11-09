@@ -27,7 +27,7 @@ resource "aws_instance" "production_nodes" {
   vpc_security_group_ids = [aws_security_group.some_rule.id]
 
   tags = {
-    name = "Production-Node-${count.index + 1}"
+    name = "production_nodes-${count.index + 1}"
   }
 
 }
@@ -38,6 +38,7 @@ resource "aws_iam_user" "production_dept" {
   for_each   = local.production
   name       = each.key
   depends_on = [aws_instance.production_nodes]
+  aws_iam_group_name = [aws_iam_group.DevOps-1.id]
 }
 
 locals {
@@ -49,4 +50,8 @@ locals {
       "David",
     "Enny"]
   )
+}
+resource "aws_iam_group" "DevOps-1" {
+    name = "devOps-Engineers"
+    path =  "/users/"
 }

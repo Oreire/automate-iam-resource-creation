@@ -1,6 +1,5 @@
 variable "ami_id" {}
 variable "instance_type_id" {}
-variable "vpc_id" {}
 variable "ingress_port_1" {}
 variable "ingress_port_2" {}
 variable "ingress_port_3" {}
@@ -12,5 +11,3 @@ variable "secret_key" {
   sensitive = true
 }
 
-variable "bucket_id" {}
-variable "bucket_key" {}
