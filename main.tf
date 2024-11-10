@@ -17,11 +17,16 @@ provider "aws" {
 
 }
 
+data "aws_ami" "amzon_linux" {
+  most_recent = true
+  owners = ["266735801941"] 
+}
+
 #Creates 5 EC2 instances
 
 resource "aws_instance" "production_nodes" {
   count                  = 5
-  ami                    = var.ami_id
+  ami                    = data.aws_ami.amzon_linux.id #var.ami_id
   instance_type          = var.instance_type_id
   key_name               = "NewAxeCred"
   vpc_security_group_ids = [aws_security_group.some_rule.id]
