@@ -1,4 +1,4 @@
-# variable "ami_id" {}
+variable "ami_id" {}
 variable "instance_type_id" {}
 # variable "ingress_port_1" {}
 # variable "ingress_port_2" {}
