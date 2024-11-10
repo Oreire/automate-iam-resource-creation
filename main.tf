@@ -17,9 +17,9 @@ provider "aws" {
 
 }
 
-# data "aws_ami" "linux" {
+# data "aws_ami" "ubuntu" {
 #   most_recent = true
-#   owners      = ["xxxxxxxxx"]
+#   owners      = ["543428934710"]
 # }
 
 #Creates 5 EC2 instances
