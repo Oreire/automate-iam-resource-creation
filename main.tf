@@ -16,6 +16,14 @@ provider "aws" {
   secret_key = var.secret_key
 
 }
+#Types of Data Blocks in Terraform
+# data "terrafor_remote_state" "name" {
+  
+# }
+
+# data "external" "name" {
+  
+# }
 
 # data "aws_ami" "ubuntu" {
 #   most_recent = true
