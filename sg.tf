@@ -1,33 +1,31 @@
 #Creaste 3 Security Grouos attached to Ec2 Instances
 
+locals {
+  inbound_ports  = [80, 443]
+  outbound_ports = [443, 8080]
+}
 resource "aws_security_group" "some_rule" {
-  name = "SSH-HTTP-HTTPS-SG"
+  name        = "SSH-HTTP-HTTPS-SG"
+  description = "Security Groups for EC2 Instance"
 
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
+  dynamic "ingress" {
+    for_each = local.inbound_ports
+    content {
+      from_port   = ingress.value
+      to_port     = ingress.value
+      protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
   }
-
-  ingress {
-    from_port   = var.ingress_port_1
-    to_port     = var.ingress_port_1
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    from_port   = var.ingress_port_2
-    to_port     = var.ingress_port_2
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    from_port   = var.ingress_port_3
-    to_port     = var.ingress_port_3
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+  dynamic "egress" {
+    for_each = local.outbound_ports
+    content {
+      from_port   = egress.value
+      to_port     = egress.value
+      protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
   }
 }
+
+

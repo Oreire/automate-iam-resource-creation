@@ -42,7 +42,7 @@ resource "aws_iam_user" "production_dept" {
 
 
 locals {
-  production = toset (
+  production = toset(
     [
       "Alan",
       "Barbie",
