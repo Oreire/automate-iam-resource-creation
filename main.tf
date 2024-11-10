@@ -32,7 +32,7 @@ resource "aws_instance" "production_nodes" {
 
 }
 
-#Creates 5 IAM Users
+#Creates 6 IAM Users
 
 resource "aws_iam_user" "production_dept" {
   for_each   = local.production
@@ -48,6 +48,7 @@ locals {
       "Barbie",
       "Charlie",
       "David",
-    "Enny"]
+    "Enny",
+    "Flame"]
   )
 }
