@@ -14,21 +14,8 @@ provider "aws" {
   region     = "eu-west-2"
   access_key = var.AWS_ACCESS_KEY_ID
   secret_key = var.AWS_SECRET_ACCESS_KEY
-
 }
-#Types of Data Blocks in Terraform
-# data "terrafor_remote_state" "name" {
 
-# }
-
-# data "external" "name" {
-
-# }
-
-# data "aws_ami" "ubuntu" {
-#   most_recent = true
-#   owners      = ["543428934710"]
-# }
 
 #Creates 5 EC2 instances
 
@@ -36,9 +23,8 @@ resource "aws_instance" "production_nodes" {
   count                  = 5
   ami                    = var.ami_id
   instance_type          = var.instance_type_id
-  key_name               = "NewAxeCred"
+  key_name               = "NewAxeCred-3"
   vpc_security_group_ids = [aws_security_group.some_rule.id]
-
   tags = {
     Name         = " Production-Node-${count.index + 1} "
     Time-Created = formatdate("MM DD YYYY hh:mm ZZZ", timestamp())
@@ -46,6 +32,7 @@ resource "aws_instance" "production_nodes" {
   }
 
 }
+
 
 #Creates 6 IAM Users
 

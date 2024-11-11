@@ -4,10 +4,10 @@ locals {
   inbound_ports  = [80, 443]
   outbound_ports = [443, 8080]
 }
+
 resource "aws_security_group" "some_rule" {
   name        = "SSH-HTTP-HTTPS-SG"
   description = "Security Groups for EC2 Instance"
-
   dynamic "ingress" {
     for_each = local.inbound_ports
     content {
@@ -27,5 +27,3 @@ resource "aws_security_group" "some_rule" {
     }
   }
 }
-
-
