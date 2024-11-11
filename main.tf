@@ -41,6 +41,8 @@ resource "aws_instance" "production_nodes" {
 
   tags = {
     Name = " Production-Node-${count.index + 1} "
+    Time-Created = formatdate("MM DD YYYY hh:mm ZZZ", timestamp())
+    Department = "DevOps-Engineers"
   }
 
 }

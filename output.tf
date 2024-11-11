@@ -11,3 +11,7 @@ output "instance_id" {
 
 }
 
+output "instance_tags" {
+  value = aws_instance.production_nodes[*].tags
+
+}
