@@ -5,12 +5,12 @@ variable "instance_type_id" {}
 # variable "ingress_port_3" {}
 variable "region" {}
 variable "AWS_ACCESS_KEY_ID" {
-  type = string
+  type      = string
   sensitive = true
 }
 variable "AWS_SECRET_ACCESS_KEY" {
-  
-  type = string
+
+  type      = string
   sensitive = true
 }
 

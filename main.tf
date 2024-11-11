@@ -18,11 +18,11 @@ provider "aws" {
 }
 #Types of Data Blocks in Terraform
 # data "terrafor_remote_state" "name" {
-  
+
 # }
 
 # data "external" "name" {
-  
+
 # }
 
 # data "aws_ami" "ubuntu" {
@@ -34,15 +34,15 @@ provider "aws" {
 
 resource "aws_instance" "production_nodes" {
   count                  = 5
-  ami                    = var.ami_id     
+  ami                    = var.ami_id
   instance_type          = var.instance_type_id
   key_name               = "NewAxeCred"
   vpc_security_group_ids = [aws_security_group.some_rule.id]
 
   tags = {
-    Name = " Production-Node-${count.index + 1} "
+    Name         = " Production-Node-${count.index + 1} "
     Time-Created = formatdate("MM DD YYYY hh:mm ZZZ", timestamp())
-    Department = "DevOps-Engineers"
+    Department   = "DevOps-Engineers"
   }
 
 }
