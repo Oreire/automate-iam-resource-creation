@@ -3,8 +3,8 @@ Advanced Terraform For Infrastructure Provisioning
 
 # Use of count command to provision several EC2 instances
 
-# Data, Locals & Dynamic blocks
+# Locals & Dynamic blocks
 
-# For_each & depends commands
+# For_each & depends on commands
 
 

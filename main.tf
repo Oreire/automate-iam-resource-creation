@@ -25,10 +25,11 @@ resource "aws_instance" "production_nodes" {
   instance_type          = var.instance_type_id
   key_name               = "NewAxeCred-3"
   vpc_security_group_ids = [aws_security_group.some_rule.id]
+  
   tags = {
     Name         = " Production-Node-${count.index + 1} "
     Time-Created = formatdate("MM DD YYYY hh:mm ZZZ", timestamp())
-    Department   = "DevOps-Engineers"
+    Department   = "DevOps"
   }
 
 }

@@ -1,4 +1,5 @@
 #Outputs of the EC2 Instances
+
 output "public_dns" {
   value = aws_instance.production_nodes[*].public_dns
 }

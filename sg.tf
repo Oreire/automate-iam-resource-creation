@@ -8,6 +8,7 @@ locals {
 resource "aws_security_group" "some_rule" {
   name        = "SSH-HTTP-HTTPS-SG"
   description = "Security Groups for EC2 Instance"
+  
   dynamic "ingress" {
     for_each = local.inbound_ports
     content {
@@ -17,6 +18,7 @@ resource "aws_security_group" "some_rule" {
       cidr_blocks = ["0.0.0.0/0"]
     }
   }
+  
   dynamic "egress" {
     for_each = local.outbound_ports
     content {
