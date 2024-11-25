@@ -7,4 +7,6 @@ Advanced Terraform For Infrastructure Provisioning
 
 # For_each & depends on commands
 
+# The Terraform code provisioned (created) specific number of IAM users on AWS 
+
 
