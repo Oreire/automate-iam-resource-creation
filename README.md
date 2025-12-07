@@ -8,6 +8,12 @@ By implementing robust IAM policies, organizations can protect sensitive data, s
 
 To achieve this, organizations should adopt programmatic deployment methods, using IaC for IAM management. Implementing IAM through Terraform or similar IaC tools ensures consistency, automation, and efficiency, enabling seamless access control across complex cloud environments. This approach reduces manual errors, streamlines administrative tasks, and allows rapid permission adjustments, ensuring governance enforcement and continuous security without compromising scalability or compliance.
 
+**Overview:**
+Designed and implemented a secure, scalable Identity and Access Management (IAM) solution on AWS using Infrastructure as Code (IaC) with Terraform. The project automated provisioning of EC2 instances, IAM users, roles, policies, and access keys, ensuring standardized role‑based access control and policy enforcement. By defining IAM policies and permissions as code, the solution reduced configuration drift, minimized manual intervention, and improved operational efficiency across multiple environments.
+
+Advanced Terraform features — including Count, Locals, Dynamic Blocks, For_each, Depends_on, and Backend State Management — were leveraged to deliver modular, reusable, and highly maintainable infrastructure code. This approach reinforced best practices in identity management, governance, and compliance, while enabling scalable, production‑ready automation for enterprise workloads.
+
+
 
 
 # Project Summary
